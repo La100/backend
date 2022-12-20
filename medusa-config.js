@@ -20,6 +20,16 @@ const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
+  {
+    resolve: `medusa-file-github`,
+    options: {
+      owner: "bentrynning",
+      repo: "medusa",
+      path: "public", // this is the path to the folder where your assets live
+      cdn_url:"https://cdn.jsdelivr.net/gh",
+      github_token: "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", // process.env.GITHUB_TOKEN
+    },
+  },
   // Uncomment to add Stripe support.
   // You can create a Stripe account via: https://stripe.com
   // {
